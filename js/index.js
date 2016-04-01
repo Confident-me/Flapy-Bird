@@ -104,7 +104,7 @@ window.onload = function(){
     var canvas = document.querySelector('#canvas');
     var ctx = canvas.getContext('2d');
     var bird = {x:170,y:234,w:45,h:33};
-    var ground = [{x:0,y:448},{x:384,y:448}];
+    var ground = [{x:0,y:505},{x:384,y:505}];
     var gd = [{x:314,y:-130,w:70,h:304},{x:314,y:286,w:70,h:304},{x:576,y:-170,w:70,h:304},{x:576,y:312,w:70,h:304}];
     var bg = [{x:0,y:0},{x:384,y:0}];
     var animation;
@@ -156,7 +156,7 @@ window.onload = function(){
 
         //背景
         var imgBG = new Image();
-        imgBG.src = 'img/bg1.png';
+        imgBG.src = 'img/bg2.jpg';
         imgBG.onload = function(){
             ctx.clearRect(0,0,320,568);
             bg[0].x -= 2;
@@ -217,7 +217,8 @@ window.onload = function(){
             ctx.drawImage(imgGround,ground[1].x,ground[1].y);
             if(ground[0].x <= -384){
                 ground[0].x = 384;
-            }else if(ground[1].x <= -384){
+            }
+            else if(ground[1].x <= -384){
                 ground[1].x = 384;
             }
         }
@@ -226,13 +227,13 @@ window.onload = function(){
         var speed = function(){
             /*a *= 1.01;
             a += 0.08;*/
-            bird.y += 1.2;
+            bird.y += 1.6;
         }
         if(guandaoflag){
             speed();
         }
         var imgBirdMid = new Image();
-        imgBirdMid.src = 'img/bird-mid1.png';
+        imgBirdMid.src = 'img/bird-mid2.png';
         imgBirdMid.onload = function(){
             ctx.drawImage(imgBirdMid,bird.x,bird.y);
         }
@@ -288,8 +289,8 @@ window.onload = function(){
     animation = window.requestAnimationFrame(draw);
     
     canvas.onclick = function(){
-        a = 1;
-        bird.y += -35;
+        a = 3;
+        bird.y += -45;
     }
 
     //reset
